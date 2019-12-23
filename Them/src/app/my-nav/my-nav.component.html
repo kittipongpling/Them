@@ -1,0 +1,39 @@
+<mat-sidenav-container class="sidenav-container " style="padding: 0 0px;font-family: 'Sarabun', sans-serif;">
+  <mat-sidenav #drawer class="sidenav" style="height: 100%;" fixedInViewport="true"
+    [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'" [mode]="(isHandset$ | async) ? 'over' : 'side'"
+    [opened]="!(isHandset$ | async)">
+
+    <div style="margin: 50 50px; height: 50; background-color: #B12D28;; box-shadow:white;">
+
+    </div>
+    <mat-nav-list>
+      <a mat-list-item [routerLink]="['/profile']">ใบเบิก</a>
+      <a mat-list-item [routerLink]="['/genaral']">Genaral</a>
+      <a mat-list-item [routerLink]="['/about']">About</a>
+
+
+    </mat-nav-list>
+
+
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary" style="background-color:  #B12D28;;">
+      <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+
+      </button>
+      <span>test</span>
+      <div class="container">
+        <a type="button" class="btn btn-link"
+          style="color: whitesmoke; margin-right: 0px; float:right; font-family: 'Sarabun', sans-serif;">
+          <span class="iconify" data-icon="mdi-logout" data-inline="false"></span><i class="fa fa-sign-in"
+            aria-hidden="true"></i>
+          ออกจากระบบ</a>
+      </div>
+
+    </mat-toolbar>
+    <!-- Add Content Here -->
+    <router-outlet></router-outlet>
+
+  </mat-sidenav-content>
+</mat-sidenav-container>
